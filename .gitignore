@@ -272,4 +272,7 @@ src/DefaultUI/CIM.Services.UI/.vscode/settings.json
 
 #Specflow
 *.feature.cs
+**/*.feature.cs
 obj
+Login.feature.cs
+NewCustomer.feature.cs
