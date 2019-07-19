@@ -5,12 +5,15 @@ using SeleniumExtras.PageObjects;
 using FluentAssertions;
 using System.Collections.Generic;
 using System;
+using System.Configuration;
+using SeleniumProject.Session1.SeleniumScripts.Helpers;
+using SeleniumProject.Session1.DataEntities.Library;
 
 namespace SeleniumProject.Session1.SeleniumScripts.Pages
 {
     public class NewCustomerPage : ScriptBase, INewCustomer
     {
-        Random random = new Random();
+        private readonly CustomerLibrary customerLibrary;
 
         [FindsBy(How = How.LinkText, Using = "New Customer")]
         private IWebElement customerTab { get; set; }
@@ -71,31 +74,39 @@ namespace SeleniumProject.Session1.SeleniumScripts.Pages
         {
             Driver = driver;
             PageFactory.InitElements(Driver, this);
+            customerLibrary = new CustomerLibrary();
         }
 
         /// <inheritdoc cref="INewCustomer" />
         public void EnterValidDataForNewCustomer()
         {
-            NewCustomer.Clear();
-            NewCustomer.Add("Customer Name", "Diego");
-            NewCustomer.Add("Gender", "male");
-            NewCustomer.Add("Address", "Plaza Cataluña");
-            NewCustomer.Add("City", "Barcelona");
-            NewCustomer.Add("State", "Barcelona");
-            NewCustomer.Add("Pin", "123321");
-            NewCustomer.Add("Mobile No.", "123321123");
-            NewCustomer.Add("Email", "diego" + random.Next(1, 10000).ToString() + "@erni.com");
+            var customerDetails = customerLibrary.GetCustomerDetails("Diego");
 
-            SendKeysElement(customerNameInput, (NewCustomer["Customer Name"]));
+            var email = ConfigurationManager.AppSettings["NewCustomerEmail"] == "" ? "diego" + GenerateRandomNumberBetween(1,10000).ToString() + "@erni.com" : ConfigurationManager.AppSettings["NewCustomerEmail"];
+            ConfigurationManager.AppSettings["NewCustomerEmail"] = email;
+
+            NewCustomer.Clear();
+            NewCustomer.Add("Customer Name", customerDetails[0]);
+            NewCustomer.Add("Gender", customerDetails[1]);
+            NewCustomer.Add("Address", customerDetails[2]);
+            NewCustomer.Add("City", customerDetails[3]);
+            NewCustomer.Add("State", customerDetails[4]);
+            NewCustomer.Add("Pin", customerDetails[5]);
+            NewCustomer.Add("Mobile No.", customerDetails[6]);
+            NewCustomer.Add("Email", email);
+
+            SendKeysElement(customerNameInput, NewCustomer["Customer Name"]);
+            if (customerDetails[1] == "male") { ClickElement(genderMaleRadioButton); }
+            else { ClickElement(genderMaleRadioButton); }
             ClickElement(genderMaleRadioButton);
             SendKeysElement(dateInput, "22/05/19");
             SendKeysElement(addressInput, NewCustomer["Address"]);
-            SendKeysElement(cityInput, NewCustomer["City"]);
-            stateInput.SendKeys(NewCustomer["State"]);
-            pinInput.SendKeys(NewCustomer["Pin"]);
-            phoneInput.SendKeys(NewCustomer["Mobile No."]);
-            emailInput.SendKeys(NewCustomer["Email"]);
-            passwordInput.SendKeys("Password");
+            SendKeysElement(cityInput, NewCustomer["State"]);
+            SendKeysElement(stateInput, NewCustomer["City"]);            
+            SendKeysElement(pinInput, NewCustomer["Pin"]);
+            SendKeysElement(phoneInput, NewCustomer["Mobile No."]);
+            SendKeysElement(emailInput, NewCustomer["Email"]);
+            SendKeysElement(passwordInput, "Password");
         }
 
         /// <inheritdoc cref="INewCustomer" />
@@ -133,6 +144,12 @@ namespace SeleniumProject.Session1.SeleniumScripts.Pages
         public void ClickNewCustomerTab()
         {
             ClickElement(customerTab);
+        }
+
+        /// <inheritdoc cref="INewCustomer" />
+        public void CheckNewUserIsNotCreated()
+        {
+            Driver.SwitchTo().Alert().Text.Should().Be("Email Address Already Exist !!");
         }
 
 

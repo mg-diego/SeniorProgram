@@ -21,5 +21,10 @@
         /// Script to check if new Customer is created
         /// </summary>
         void CheckNewCustomerIsCreated();
+
+        /// <summary>
+        /// Script to check if a new user is created
+        /// </summary>
+        void CheckNewUserIsNotCreated();
     }
 }

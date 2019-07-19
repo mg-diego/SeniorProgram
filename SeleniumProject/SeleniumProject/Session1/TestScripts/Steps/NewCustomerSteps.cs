@@ -52,5 +52,21 @@ namespace SeleniumProject.Session1.TestScripts.Steps
             newCustomer.CheckNewCustomerIsCreated();
         }
 
+
+        [Given(@"a new valid user is created")]
+        public void NewValidUserIsCreated()
+        {
+            TheUserOpensTheNewCustomerTab();
+            GivenTheUserEntersValidDataForNewCustomer();
+            WhenTheUserClicksOn();
+            ThenTheNewCustomerIsCreated();
+        }
+
+        [Then(@"the new customer is not created")]
+        public void ThenTheNewCustomerIsNotCreated()
+        {
+            newCustomer.CheckNewUserIsNotCreated();
+        }
+
     }
 }

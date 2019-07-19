@@ -7,10 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using SeleniumExtrasWaitHelper = SeleniumExtras.WaitHelpers;
+using SeleniumProject.Session1.SeleniumScripts.Helpers;
 
 namespace SeleniumScripts
 {
-    public class ScriptBase
+    public class ScriptBase : SeleniumHelpers
     {
         public IWebDriver Driver { get; set; }
 

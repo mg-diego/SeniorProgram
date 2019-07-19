@@ -112,6 +112,33 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Chrome: Cant create two duplicated users")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "NewCustomer")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Chrome")]
+        public virtual void ChromeCantCreateTwoDuplicatedUsers()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chrome: Cant create two duplicated users", null, new string[] {
+                        "Chrome"});
+#line 15
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 16
+    testRunner.Given("a user login into Guru99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+    testRunner.And("a new valid user is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+    testRunner.And("the user opens the New Customer tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
+ testRunner.And("the user enters valid data for new customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+ testRunner.When("the user clicks on submit new customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+ testRunner.Then("the new customer is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
