@@ -2,10 +2,11 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using AutomationProject.Session1.Contracts;
+using AutomationProject.Contracts;
 using System;
 using System.IO;
 using System.Reflection;
+using AutomationProject.DataEntities.Library;
 
 namespace SeleniumScripts
 {
@@ -17,7 +18,7 @@ namespace SeleniumScripts
         /// <summary>
         /// Path for Selenium drivers
         /// </summary>
-        private const string DriverPath = @"\Session1\Binaries\";
+        private const string DriverPath = @"\Session2\Binaries\";
 
         /// <summary>
         /// The browser
@@ -42,15 +43,21 @@ namespace SeleniumScripts
             Driver.Manage().Window.Maximize();
         }
 
-        /// <summary>
-        /// Implement ISetupDriver
-        /// </summary>
+        /// <inheritdoc cref="ISetupDriver" />
+
         public void LoadWebDriver()
         {
             if (Driver == null)
             {
                 Init();
             }
+        }
+
+        /// <inheritdoc cref="ISetupDriver" />
+        public void LoadAPIDriver()
+        {
+            NodeServerLibrary nsl = new NodeServerLibrary();
+            nsl.GetServerUrl("a");
         }
 
 

@@ -1,10 +1,10 @@
 ﻿using OpenQA.Selenium;
-using AutomationProject.Session1.Contracts.Pages;
+using AutomationProject.Session2.Contracts.Pages;
 using SeleniumScripts;
 using SeleniumExtras.PageObjects;
 using FluentAssertions;
 
-namespace AutomationProject.Session1.SeleniumScripts.Pages
+namespace AutomationProject.Session2.SeleniumScripts.Pages
 {
     public class LoginPage : ScriptBase, ILoginPage
     {

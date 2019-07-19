@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace AutomationProject.Session1.DataEntities.Model
+namespace AutomationProject.DataEntities.Model
 {
     public class CustomerModel
     {

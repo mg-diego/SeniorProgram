@@ -5,13 +5,13 @@ using System.Linq;
 
 namespace AutomationProject.Session2.DataEntities.Library
 {
-    public class CustomerLibrary : Helper
+    public class NodeServerLibrary : Helper
     {
 
         /// <summary>
         /// Returns the user details as specified by the user's role
         /// </summary>
-        public string[] GetCustomerDetails(string username)
+        public string[] GetNodeServer(string username)
         {
             var customerDetails = GetJsonDeserialize<List<CustomerModel>>("Customer.json").Where(item => item.CustomerName == username);
 

@@ -1,0 +1,7 @@
+﻿[
+    {
+        "id": "8ff3bbb8-94ea-4d43-b727-7e11ffebf994",
+        "databaseAddress": "mongodb://admin:admin@localhost:27020",
+        "webapiaddress": "https://jsonplaceholder.typicode.com"
+    }
+]

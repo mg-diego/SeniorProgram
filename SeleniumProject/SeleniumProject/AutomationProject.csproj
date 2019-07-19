@@ -127,46 +127,55 @@
   <ItemGroup>
     <Compile Include="Session0\ChromeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Session1\ContainerDependecies.cs" />
-    <Compile Include="Session1\Contracts\Pages\ILoginPage.cs" />
-    <Compile Include="Session1\Contracts\Pages\INewCustomer.cs" />
-    <Compile Include="Session1\Contracts\Setup\ISetupDriver.cs" />
-    <Compile Include="Session1\DataEntities\Library\CustomerLibrary.cs" />
-    <Compile Include="Session1\DataEntities\Model\CustomerModel.cs" />
-    <Compile Include="Session1\SeleniumScripts\Base\ScriptBase.cs" />
-    <Compile Include="Session1\SeleniumScripts\Helpers\SeleniumHelpers.cs" />
-    <Compile Include="Session1\SeleniumScripts\Hook.cs" />
-    <Compile Include="Session1\SeleniumScripts\Pages\LoginPage.cs" />
-    <Compile Include="Session1\SeleniumScripts\Pages\NewCustomerPage.cs" />
-    <Compile Include="Session1\SeleniumScripts\Setup\SetupDriver.cs" />
-    <Compile Include="Session1\TestScripts\Steps\LoginSteps.cs" />
-    <Compile Include="Session1\TestScripts\Steps\NewCustomerSteps.cs" />
-    <Compile Include="Session1\TestScripts\Steps\StepBase.cs" />
-    <Compile Include="**\*.feature.cs" Exclude="@(Compile)" />
+    <Compile Include="Session2\ContainerDependecies.cs" />
+    <Compile Include="Session2\Contracts\Pages\ILoginPage.cs" />
+    <Compile Include="Session2\Contracts\Pages\INewCustomer.cs" />
+    <Compile Include="Session2\Contracts\Setup\ISetupDriver.cs" />
+    <Compile Include="Session2\DataEntities\Library\NodeServerLibrary.cs" />
+    <Compile Include="Session2\DataEntities\Library\CustomerLibrary.cs" />
+    <Compile Include="Session2\DataEntities\Library\Helper.cs" />
+    <Compile Include="Session2\DataEntities\Model\CustomerModel.cs" />
+    <Compile Include="Session2\SeleniumScripts\Base\ScriptBase.cs" />
+    <Compile Include="Session2\SeleniumScripts\Helpers\SeleniumHelpers.cs" />
+    <Compile Include="Session2\SeleniumScripts\Hook.cs" />
+    <Compile Include="Session2\SeleniumScripts\Pages\LoginPage.cs" />
+    <Compile Include="Session2\SeleniumScripts\Pages\NewCustomerPage.cs" />
+    <Compile Include="Session2\SeleniumScripts\Setup\SetupDriver.cs" />
+    <Compile Include="Session2\TestScripts\UI\Steps\LoginSteps.cs" />
+    <Compile Include="Session2\TestScripts\UI\Steps\NewCustomerSteps.cs" />
+    <Compile Include="Session2\TestScripts\UI\Steps\StepBase.cs" />
+    <Compile Include="Session2\TestScripts\UI\Features\Login.feature.cs" />
+    <Compile Include="Session2\TestScripts\UI\Features\NewCustomer.feature.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="Session1\DataEntities\json\Customer.json">
+    <None Include="Session2\DataEntities\json\Customer.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Session1\TestScripts\Features\Login.feature" />
-    <None Include="Session1\TestScripts\Features\NewCustomer.feature">
+    <None Include="Session2\DataEntities\json\nodeserver.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Session2\TestScripts\UI\Features\Login.feature" />
+    <None Include="Session2\TestScripts\UI\Features\NewCustomer.feature">
       <LastGenOutput>NewCustomer.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Session1\Binaries\chromedriver.exe">
+    <Content Include="Session2\Binaries\chromedriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Session1\Binaries\geckodriver.exe">
+    <Content Include="Session2\Binaries\geckodriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Session1\Binaries\IEDriverServer.exe">
+    <Content Include="Session2\Binaries\IEDriverServer.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Session2\TestScripts\API\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

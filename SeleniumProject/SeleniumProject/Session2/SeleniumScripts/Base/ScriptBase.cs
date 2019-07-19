@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using SeleniumExtrasWaitHelper = SeleniumExtras.WaitHelpers;
-using AutomationProject.Session1.SeleniumScripts.Helpers;
+using AutomationProject.SeleniumScripts.Helpers;
 
 namespace SeleniumScripts
 {

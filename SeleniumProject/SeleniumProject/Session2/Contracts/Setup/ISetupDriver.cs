@@ -1,5 +1,5 @@
 ﻿
-namespace AutomationProject.Session1.Contracts
+namespace AutomationProject.Session2.Contracts
 {
     /// <summary>
     /// Interface that defines the methods that the Setup Driver has to implement.
@@ -10,5 +10,10 @@ namespace AutomationProject.Session1.Contracts
         /// Prepares the web driver
         /// </summary>
         void LoadWebDriver();
+
+        /// <summary>
+        /// Prepares the api driver
+        /// </summary>
+        void LoadAPIDriver();
     }
 }

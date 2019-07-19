@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using AutomationProject.Session1.Containers;
+using AutomationProject.Session2.Containers;
 using SeleniumScripts;
 using System;
 using System.Configuration;
@@ -8,7 +8,7 @@ using System.Globalization;
 using System.IO;
 using TechTalk.SpecFlow;
 
-namespace AutomationProject.Session1.SeleniumScripts
+namespace AutomationProject.Session2.SeleniumScripts
 {
     [Binding]
     public sealed class Hook
@@ -114,24 +114,18 @@ namespace AutomationProject.Session1.SeleniumScripts
                     Load(Browser.Chrome);
                     break;
 
-                case "Win10_Ent_Firefox":
+                case "Firefox":
                     Load(Browser.Firefox);
                     break;
 
-                case "Win10_Ent_IE":
+                case "IE":
                     Load(Browser.IE);
                     break;
 
-                case "Win10_Pro_Chrome":
-                    Load(Browser.Chrome);
-                    break;
-
-                case "Win10_Pro_Firefox":
-                    Load(Browser.Firefox);
-                    break;
-
-                case "Win10_Pro_IE":
-                    Load(Browser.IE);
+                case "api":
+                    ContainerDependencies.CreateContainer();
+                    var setupDriver = ContainerDependencies.Container.Resolve(typeof(SetupDriver), null, null) as SetupDriver;
+                    setupDriver.LoadAPIDriver();
                     break;
 
                 default:

@@ -2,7 +2,7 @@
 using System;
 using TechTalk.SpecFlow;
 
-namespace AutomationProject.Session1.TestScripts.Steps
+namespace AutomationProject.TestScripts.Steps
 {
     public abstract class StepBase : TechTalk.SpecFlow.Steps, IDisposable
     {

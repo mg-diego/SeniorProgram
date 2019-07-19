@@ -1,15 +1,15 @@
 ﻿using OpenQA.Selenium;
-using AutomationProject.Session1.Contracts.Pages;
+using AutomationProject.Contracts.Pages;
 using SeleniumScripts;
 using SeleniumExtras.PageObjects;
 using FluentAssertions;
 using System.Collections.Generic;
 using System;
 using System.Configuration;
-using AutomationProject.Session1.SeleniumScripts.Helpers;
-using AutomationProject.Session1.DataEntities.Library;
+using AutomationProject.SeleniumScripts.Helpers;
+using AutomationProject.DataEntities.Library;
 
-namespace AutomationProject.Session1.SeleniumScripts.Pages
+namespace AutomationProject.SeleniumScripts.Pages
 {
     public class NewCustomerPage : ScriptBase, INewCustomer
     {

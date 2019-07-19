@@ -1,4 +1,4 @@
-﻿namespace AutomationProject.Session1.Contracts.Pages
+﻿namespace AutomationProject.Contracts.Pages
 {
     public interface ILoginPage
     {

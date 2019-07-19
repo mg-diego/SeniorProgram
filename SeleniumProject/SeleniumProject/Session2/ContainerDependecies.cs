@@ -1,11 +1,11 @@
-﻿using AutomationProject.Session1.Contracts;
-using AutomationProject.Session1.Contracts.Pages;
-using AutomationProject.Session1.SeleniumScripts.Pages;
+﻿using AutomationProject.Contracts;
+using AutomationProject.Contracts.Pages;
+using AutomationProject.SeleniumScripts.Pages;
 using SeleniumScripts;
 using Unity;
 using Unity.Lifetime;
 
-namespace AutomationProject.Session1.Containers
+namespace AutomationProject.Containers
 {
     public static class ContainerDependencies
     {
