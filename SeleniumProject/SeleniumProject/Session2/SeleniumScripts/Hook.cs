@@ -1,14 +1,15 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using AutomationProject.Session2.Containers;
+using AutomationProject.Containers;
 using SeleniumScripts;
 using System;
 using System.Configuration;
 using System.Globalization;
 using System.IO;
 using TechTalk.SpecFlow;
+using AutomationProject.Containers;
 
-namespace AutomationProject.Session2.SeleniumScripts
+namespace AutomationProject.SeleniumScripts
 {
     [Binding]
     public sealed class Hook

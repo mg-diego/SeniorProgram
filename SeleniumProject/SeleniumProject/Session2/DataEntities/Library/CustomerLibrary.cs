@@ -1,9 +1,9 @@
-﻿using AutomationProject.Session2.DataEntities.Model;
-using SeleniumProject.Session2.DataEntities.Library;
+﻿using AutomationProject.DataEntities.Model;
+using SeleniumProject.DataEntities.Library;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AutomationProject.Session2.DataEntities.Library
+namespace AutomationProject.DataEntities.Library
 {
     public class CustomerLibrary : Helper
     {

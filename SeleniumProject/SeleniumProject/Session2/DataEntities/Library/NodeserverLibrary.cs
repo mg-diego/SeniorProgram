@@ -1,9 +1,10 @@
-﻿using AutomationProject.Session2.DataEntities.Model;
-using SeleniumProject.Session2.DataEntities.Library;
+﻿using AutomationProject.DataEntities.Model;
+using SeleniumProject.DataEntities.Library;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 
-namespace AutomationProject.Session2.DataEntities.Library
+namespace AutomationProject.DataEntities.Library
 {
     public class NodeServerLibrary : Helper
     {
@@ -11,30 +12,19 @@ namespace AutomationProject.Session2.DataEntities.Library
         /// <summary>
         /// Returns the user details as specified by the user's role
         /// </summary>
-        public string[] GetNodeServer(string username)
+        public string GetServerUrl(string environment = null)
         {
-            var customerDetails = GetJsonDeserialize<List<CustomerModel>>("Customer.json").Where(item => item.CustomerName == username);
+            if (string.IsNullOrEmpty(environment))
+            {
+                environment = "localhost";
+            }
+            var nodeList = GetJsonDeserialize<List<NodeServerModel>>("nodeserver.json").Where(item => item.Environment == environment);
 
-            var userName = customerDetails.Select(item => item.CustomerName);
-            var gender = customerDetails.Select(item => item.Gender);
-            var address = customerDetails.Select(item => item.Address);
-            var city = customerDetails.Select(item => item.City);
-            var state = customerDetails.Select(item => item.State);
-            var pin = customerDetails.Select(item => item.Pin);
-            var phoneNo = customerDetails.Select(item => item.PhoneNo);
-            var email = customerDetails.Select(item => item.Email);
+            var node = nodeList.ToList()[GenerateRandomIndex(nodeList.Count())];
 
-            var node = new string[8];
-            node[0] = userName.ToList()[GenerateRandomIndex(userName.Count())];
-            node[1] = gender.ToList()[GenerateRandomIndex(gender.Count())];
-            node[2] = address.ToList()[GenerateRandomIndex(address.Count())];
-            node[3] = city.ToList()[GenerateRandomIndex(city.Count())];
-            node[4] = state.ToList()[GenerateRandomIndex(state.Count())];
-            node[5] = pin.ToList()[GenerateRandomIndex(pin.Count())];
-            node[6] = phoneNo.ToList()[GenerateRandomIndex(phoneNo.Count())];
-            node[7] = email.ToList()[GenerateRandomIndex(email.Count())];
+            ConfigurationManager.AppSettings["WebApiAddress"] = node.WebApiAddress;
 
-            return node;
+            return node.Server;
         }
     }
 }

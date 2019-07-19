@@ -135,6 +135,7 @@
     <Compile Include="Session2\DataEntities\Library\CustomerLibrary.cs" />
     <Compile Include="Session2\DataEntities\Library\Helper.cs" />
     <Compile Include="Session2\DataEntities\Model\CustomerModel.cs" />
+    <Compile Include="Session2\DataEntities\Model\NodeServerModel.cs" />
     <Compile Include="Session2\SeleniumScripts\Base\ScriptBase.cs" />
     <Compile Include="Session2\SeleniumScripts\Helpers\SeleniumHelpers.cs" />
     <Compile Include="Session2\SeleniumScripts\Hook.cs" />

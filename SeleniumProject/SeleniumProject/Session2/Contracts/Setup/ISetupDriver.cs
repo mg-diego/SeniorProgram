@@ -1,5 +1,5 @@
 ﻿
-namespace AutomationProject.Session2.Contracts
+namespace AutomationProject.Contracts
 {
     /// <summary>
     /// Interface that defines the methods that the Setup Driver has to implement.

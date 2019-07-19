@@ -56,8 +56,8 @@ namespace SeleniumScripts
         /// <inheritdoc cref="ISetupDriver" />
         public void LoadAPIDriver()
         {
-            NodeServerLibrary nsl = new NodeServerLibrary();
-            nsl.GetServerUrl("a");
+            NodeServerLibrary nodeServerLibrary = new NodeServerLibrary();
+            nodeServerLibrary.GetServerUrl();
         }
 
 

@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
 
-namespace SeleniumProject.Session2.DataEntities.Library
+namespace SeleniumProject.DataEntities.Library
 {
     public class Helper
     {
