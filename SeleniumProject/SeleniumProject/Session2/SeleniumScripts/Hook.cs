@@ -1,13 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AutomationProject.Containers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using AutomationProject.Containers;
 using SeleniumScripts;
 using System;
-using System.Configuration;
 using System.Globalization;
 using System.IO;
 using TechTalk.SpecFlow;
-using AutomationProject.Containers;
 
 namespace AutomationProject.SeleniumScripts
 {
