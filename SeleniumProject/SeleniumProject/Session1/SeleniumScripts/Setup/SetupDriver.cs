@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using SeleniumProject.Session1.Contracts;
+using AutomationProject.Session1.Contracts;
 using System;
 
 namespace SeleniumScripts

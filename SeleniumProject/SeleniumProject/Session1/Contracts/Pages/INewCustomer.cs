@@ -1,4 +1,4 @@
-﻿namespace SeleniumProject.Session1.Contracts.Pages
+﻿namespace AutomationProject.Session1.Contracts.Pages
 {
     public interface INewCustomer
     {

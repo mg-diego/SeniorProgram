@@ -1,10 +1,10 @@
-﻿using SeleniumProject.Session1.Contracts.Pages;
+﻿using AutomationProject.Session1.Contracts.Pages;
 using TechTalk.SpecFlow;
 using Unity.Resolution;
 using System.Configuration;
-using SeleniumProject.Session1.Containers;
+using AutomationProject.Session1.Containers;
 
-namespace SeleniumProject.Session1.TestScripts.Steps
+namespace AutomationProject.Session1.TestScripts.Steps
 {
     [Binding]
     public class LoginSteps : StepBase

@@ -1,15 +1,15 @@
 ﻿using OpenQA.Selenium;
-using SeleniumProject.Session1.Contracts.Pages;
+using AutomationProject.Session1.Contracts.Pages;
 using SeleniumScripts;
 using SeleniumExtras.PageObjects;
 using FluentAssertions;
 using System.Collections.Generic;
 using System;
 using System.Configuration;
-using SeleniumProject.Session1.SeleniumScripts.Helpers;
-using SeleniumProject.Session1.DataEntities.Library;
+using AutomationProject.Session1.SeleniumScripts.Helpers;
+using AutomationProject.Session1.DataEntities.Library;
 
-namespace SeleniumProject.Session1.SeleniumScripts.Pages
+namespace AutomationProject.Session1.SeleniumScripts.Pages
 {
     public class NewCustomerPage : ScriptBase, INewCustomer
     {
@@ -82,7 +82,7 @@ namespace SeleniumProject.Session1.SeleniumScripts.Pages
         {
             var customerDetails = customerLibrary.GetCustomerDetails("Diego");
 
-            var email = ConfigurationManager.AppSettings["NewCustomerEmail"] == "" ? "diego" + GenerateRandomNumberBetween(1,10000).ToString() + "@erni.com" : ConfigurationManager.AppSettings["NewCustomerEmail"];
+            var email = ConfigurationManager.AppSettings["NewCustomerEmail"] == "" ? "diego" + GenerateRandomNumberBetween(1,10000000).ToString() + "@erni.com" : ConfigurationManager.AppSettings["NewCustomerEmail"];
             ConfigurationManager.AppSettings["NewCustomerEmail"] = email;
 
             NewCustomer.Clear();

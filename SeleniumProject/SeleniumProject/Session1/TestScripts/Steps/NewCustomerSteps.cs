@@ -1,5 +1,5 @@
-﻿using SeleniumProject.Session1.Containers;
-using SeleniumProject.Session1.Contracts.Pages;
+﻿using AutomationProject.Session1.Containers;
+using AutomationProject.Session1.Contracts.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using Unity.Resolution;
 
-namespace SeleniumProject.Session1.TestScripts.Steps
+namespace AutomationProject.Session1.TestScripts.Steps
 {
     [Binding]
     public class NewCustomerSteps : StepBase

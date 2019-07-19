@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SeleniumProject.Session1.TestScripts.Features
+namespace AutomationProject.Session1.TestScripts.Features
 {
     using TechTalk.SpecFlow;
     
@@ -62,7 +62,7 @@ namespace SeleniumProject.Session1.TestScripts.Features
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "Login")))
             {
-                global::SeleniumProject.Session1.TestScripts.Features.LoginFeature.FeatureSetup(null);
+                global::AutomationProject.Session1.TestScripts.Features.LoginFeature.FeatureSetup(null);
             }
         }
         

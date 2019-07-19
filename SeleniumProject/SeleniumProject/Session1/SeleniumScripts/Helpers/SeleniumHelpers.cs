@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SeleniumProject.Session1.SeleniumScripts.Helpers
+namespace AutomationProject.Session1.SeleniumScripts.Helpers
 {
     public class SeleniumHelpers
     {

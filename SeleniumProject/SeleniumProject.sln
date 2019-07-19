@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumProject", "SeleniumProject\SeleniumProject.csproj", "{7400CCD3-7073-407E-AE89-C2D664BC792D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationProject", "SeleniumProject\AutomationProject.csproj", "{7400CCD3-7073-407E-AE89-C2D664BC792D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

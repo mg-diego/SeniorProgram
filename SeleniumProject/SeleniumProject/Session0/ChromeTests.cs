@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace SeleniumProject
+namespace AutomationProject
 {
     /// <summary>
     /// Testing the Login functionallity

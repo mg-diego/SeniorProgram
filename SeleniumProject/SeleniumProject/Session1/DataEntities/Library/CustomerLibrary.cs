@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using SeleniumProject.Session1.DataEntities.Model;
+using AutomationProject.Session1.DataEntities.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 
-namespace SeleniumProject.Session1.DataEntities.Library
+namespace AutomationProject.Session1.DataEntities.Library
 {
     public class CustomerLibrary
     {
