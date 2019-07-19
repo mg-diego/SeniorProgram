@@ -13,7 +13,7 @@ namespace AutomationProject.Session1.SeleniumScripts
     [Binding]
     public sealed class Hook
     {
-        enum Browser { Chrome, Firefox, IE, Opera };
+        enum Browser { Chrome, Firefox, IE };
 
         private IWebDriver driver;
 
@@ -113,23 +113,11 @@ namespace AutomationProject.Session1.SeleniumScripts
                     Load(Browser.Chrome);
                     break;
 
-                case "Win10_Ent_Firefox":
+                case "Firefox":
                     Load(Browser.Firefox);
                     break;
 
-                case "Win10_Ent_IE":
-                    Load(Browser.IE);
-                    break;
-
-                case "Win10_Pro_Chrome":
-                    Load(Browser.Chrome);
-                    break;
-
-                case "Win10_Pro_Firefox":
-                    Load(Browser.Firefox);
-                    break;
-
-                case "Win10_Pro_IE":
+                case "IE":
                     Load(Browser.IE);
                     break;
 
