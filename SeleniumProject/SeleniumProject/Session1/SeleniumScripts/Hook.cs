@@ -61,6 +61,7 @@ namespace AutomationProject.Session1.SeleniumScripts
         public void AfterScenario()
         {
             driver?.Quit();
+            driver?.Dispose();
         }
 
         [BeforeStep]
