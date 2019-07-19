@@ -4,6 +4,8 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using AutomationProject.Session1.Contracts;
 using System;
+using System.IO;
+using System.Reflection;
 
 namespace SeleniumScripts
 {
@@ -12,6 +14,11 @@ namespace SeleniumScripts
     /// </summary>
     public class SetupDriver : ISetupDriver
     {
+        /// <summary>
+        /// Path for Selenium drivers
+        /// </summary>
+        private const string DriverPath = @"\Session1\Binaries\";
+
         /// <summary>
         /// The browser
         /// </summary>
@@ -62,7 +69,7 @@ namespace SeleniumScripts
                     chromeOptions.AddUserProfilePreference("credentials_enable_service", false);
                     chromeOptions.AddUserProfilePreference("profile.password_manager_enabled", false);
                     chromeOptions.UnhandledPromptBehavior = UnhandledPromptBehavior.Accept;
-                    this.Driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(@"C:\Temp"), chromeOptions, TimeSpan.FromSeconds(10));                   
+                    this.Driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + DriverPath), chromeOptions, TimeSpan.FromSeconds(10));                   
                     break;
 
                 case "FIREFOX":
@@ -71,7 +78,7 @@ namespace SeleniumScripts
                         "--disable-extensions-http-throttling --disable-infobars --enable-automation --start-maximized");
                     firefoxOptions.AcceptInsecureCertificates = true;
 
-                    this.Driver = new FirefoxDriver(FirefoxDriverService.CreateDefaultService(@"C:\Temp"), firefoxOptions, TimeSpan.FromSeconds(10));
+                    this.Driver = new FirefoxDriver(FirefoxDriverService.CreateDefaultService(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + DriverPath), firefoxOptions, TimeSpan.FromSeconds(10));
                     break;
 
                 case "IE":
@@ -83,7 +90,7 @@ namespace SeleniumScripts
                         IgnoreZoomLevel = true
                     };
 
-                    this.Driver = new InternetExplorerDriver(InternetExplorerDriverService.CreateDefaultService(@"C:\Temp"), ieOptions, TimeSpan.FromSeconds(10));
+                    this.Driver = new InternetExplorerDriver(InternetExplorerDriverService.CreateDefaultService(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + DriverPath), ieOptions, TimeSpan.FromSeconds(10));
                     break;
 
                 default:
