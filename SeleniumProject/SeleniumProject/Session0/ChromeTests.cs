@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 
-namespace SeleniumProject
+namespace AutomationProject
 {
     /// <summary>
     /// Testing the Login functionallity
