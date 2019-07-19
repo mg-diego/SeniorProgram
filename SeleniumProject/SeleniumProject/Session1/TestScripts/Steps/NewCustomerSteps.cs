@@ -28,13 +28,14 @@ namespace SeleniumProject.Session1.TestScripts.Steps
         }
 
         [Given(@"the user enters valid data for new customer")]
+        [Given(@"the user enters same data for new customer")]
         public void GivenTheUserEntersValidDataForNewCustomer()
         {
             newCustomer.EnterValidDataForNewCustomer();
         }
 
         [When(@"the user clicks on submit new customer")]
-        public void WhenTheUserClicksOn()
+        public void WhenTheUserClicksOnSubmit()
         {
             newCustomer.ClickSubmitButton();
         }
@@ -58,13 +59,14 @@ namespace SeleniumProject.Session1.TestScripts.Steps
         {
             TheUserOpensTheNewCustomerTab();
             GivenTheUserEntersValidDataForNewCustomer();
-            WhenTheUserClicksOn();
+            WhenTheUserClicksOnSubmit();
             ThenTheNewCustomerIsCreated();
         }
 
         [Then(@"the new customer is not created")]
         public void ThenTheNewCustomerIsNotCreated()
         {
+            WhenTheUserClicksOnSubmit();
             newCustomer.CheckNewUserIsNotCreated();
         }
 

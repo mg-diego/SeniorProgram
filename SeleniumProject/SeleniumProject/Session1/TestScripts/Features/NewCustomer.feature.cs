@@ -131,10 +131,8 @@ this.ScenarioInitialize(scenarioInfo);
 #line 18
     testRunner.And("the user opens the New Customer tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
- testRunner.And("the user enters valid data for new customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the user enters same data for new customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
- testRunner.When("the user clicks on submit new customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 21
  testRunner.Then("the new customer is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

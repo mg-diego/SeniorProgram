@@ -61,7 +61,7 @@ namespace SeleniumScripts
                         "--disable-infobars --enable-automation --start-maximized");
                     chromeOptions.AddUserProfilePreference("credentials_enable_service", false);
                     chromeOptions.AddUserProfilePreference("profile.password_manager_enabled", false);
-
+                    chromeOptions.UnhandledPromptBehavior = UnhandledPromptBehavior.Accept;
                     this.Driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(@"C:\Temp"), chromeOptions, TimeSpan.FromSeconds(10));                   
                     break;
 

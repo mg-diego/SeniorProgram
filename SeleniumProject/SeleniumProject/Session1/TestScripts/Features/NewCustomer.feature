@@ -16,6 +16,5 @@ Scenario: Chrome: Cant create two duplicated users
     Given a user login into Guru99
     And a new valid user is created
     And the user opens the New Customer tab
-	And the user enters valid data for new customer
-	When the user clicks on submit new customer
+	And the user enters same data for new customer
 	Then the new customer is not created

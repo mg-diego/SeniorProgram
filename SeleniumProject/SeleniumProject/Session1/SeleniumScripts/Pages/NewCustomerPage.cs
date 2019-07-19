@@ -136,7 +136,7 @@ namespace SeleniumProject.Session1.SeleniumScripts.Pages
 
         public void ClickSubmitButton()
         {
-            ClickElement(submitBtn);
+           submitBtn.Click();
         }
 
         /// <inheritdoc cref="INewCustomer" />

@@ -28,6 +28,9 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+**/bin/*
+**/Debug/*
+**/obj/*
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -257,14 +260,7 @@ paket-files/
 .idea/
 *.sln.iml
 *.env
-Docker Images/
-/test/UnitTest/BuildingBlocks/EventBus/CIM.BulidingBlocks.EventBus.Unittest
-/testautomation/SeleniumScript/CIM.SeleniumScript.Scripts/Pages/UserGroupPage.cs
-/testautomation/SeleniumScript/CIM.SeleniumScript.Scripts/Pages/CreateUserGroupPage.cs
-/testautomation/Contract/CIM.Contract.Contracts/Pages/IUserGroupPage.cs
-/testautomation/Contract/CIM.Contract.Contracts/Pages/ICreateUserGroupPage.cs
-/.sonarqube
-*.opencover.xml
+
 
 #Visual studio Code
 .vscode/*
@@ -276,3 +272,4 @@ src/DefaultUI/CIM.Services.UI/.vscode/settings.json
 
 #Specflow
 *.feature.cs
+obj
