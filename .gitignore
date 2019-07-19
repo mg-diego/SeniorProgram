@@ -273,3 +273,6 @@ src/DefaultUI/CIM.Services.UI/.vscode/settings.json
 #Specflow
 *.feature.cs
 obj
+storage.ide-wal
+storage.ide
+storage.ide-shm

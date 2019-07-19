@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.Collections.Generic;
 
 namespace SeleniumProject
 {
@@ -25,7 +25,6 @@ namespace SeleniumProject
         public void SetUp()
         {
             //Set Up Web Driver
-            this._webDriver = new ChromeDriver(ChromeDriverService.CreateDefaultService(@"C:\Temp"), new ChromeOptions(), TimeSpan.FromSeconds(10));
             this._webDriver = new ChromeDriver(ChromeDriverService.CreateDefaultService(@"C:\Temp"), new ChromeOptions(), TimeSpan.FromSeconds(10));
 
             // Go to the Web Page
