@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using RestSharp;
 using System;
 using TechTalk.SpecFlow;
 
