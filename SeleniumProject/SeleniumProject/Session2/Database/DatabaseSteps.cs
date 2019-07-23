@@ -1,12 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SeleniumProject.Database;
+using TechTalk.SpecFlow;
 
-namespace SeleniumProject.Session2.Database
+namespace AutomationProject.TestScripts.Steps
 {
-    class DatabaseSteps
+    [Binding]
+    public class DatabaseSteps
     {
+        [Given(@"the following users are inserted into the database")]
+        public void GivenFollowingUsersAreInsertedIntoDatabase(Table table)
+        {
+            var seeder = new DatabaseSeeder();
+
+            foreach (var row in table.Rows)
+            {
+                var userName = row["Name"];
+                var userSalary = row["Salary"];
+                var userAge = row["Age"];
+                seeder.InsertUserIntoDatabase();
+            }
+        }
+
+        [Given(@"'(.*)' users are inserted into database")]
+        public void GivenUsersAreInsertedIntoDatabase(int p0)
+        {
+
+        }
+
     }
 }
