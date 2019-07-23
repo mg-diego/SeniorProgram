@@ -3,12 +3,12 @@
 
 @api
 Scenario: GET - Employees returns all employees
-	Given '1448' users are inserted into database
+	Given '28' users are inserted into database
 	When the following employees api resource is requested
     | Resource  | Value |
     | Employees | GET   |
 	Then a response with http code '200' is received
-    And the response body contains 'id' exactly '1448' times
+    And the response body contains 'id' exactly '28' times
 
 @api
 Scenario: GET - Employee returns valid info for a concrete employee
@@ -16,8 +16,8 @@ Scenario: GET - Employee returns valid info for a concrete employee
     | Name | Salary | Age |
     | rss  | 343    | 43  |
 	When the following employee api resource is requested
-    | Resource | Value | UserName |
-    | Employee | GET   | rss      |
+    | Resource | Value | Name |
+    | Employee | GET   | rss  |
 	Then a response with http code '200' is received
     And the response body contains '"employee_name":"rss"'
     And the response body contains '"employee_salary":"343"'
@@ -26,7 +26,7 @@ Scenario: GET - Employee returns valid info for a concrete employee
 @api
 Scenario: GET - Employee returns false for invalid user
 	When the following employee api resource is requested
-    | Resource | Value | UserName  |
+    | Resource | Value | Name      |
     | Employee | GET   | WrongUser |
 	Then a response with http code '200' is received
     And the response body contains 'false'
@@ -34,8 +34,8 @@ Scenario: GET - Employee returns false for invalid user
 @api
 Scenario: GET - Employee returns error for empty user
 	When the following employee api resource is requested
-    | Resource | Value | UserName |
-    | Employee | GET   | Empty    |
+    | Resource | Value | Name  |
+    | Employee | GET   | Empty |
 	Then a response with http code '404' is received
     And the response body contains '"message":"Not found"'
 
