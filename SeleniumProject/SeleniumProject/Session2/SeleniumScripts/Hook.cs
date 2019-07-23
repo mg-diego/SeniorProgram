@@ -25,16 +25,23 @@ namespace AutomationProject.SeleniumScripts
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
+            //RemoveDb();
+            //InsertDefaultDBConfig();
         }
 
         [AfterTestRun]
         public static void AfterTestRun()
         {
+            //RemoveDb();
+            //InsertDefaultDBConfig();
         }
 
         [BeforeScenario]
         public void BeforeScenario()
         {
+            //RemoveDb();
+            //InsertDefaultDBConfig();
+
             //Get the browser + testcase TAG
             foreach (var tag in ScenarioContext.Current.ScenarioInfo.Tags)
             {
@@ -59,6 +66,9 @@ namespace AutomationProject.SeleniumScripts
         [AfterScenario]
         public void AfterScenario()
         {
+            //RemoveDb();
+            //InsertDefaultDBConfig();
+
             driver?.Quit();
             driver?.Dispose();
         }
