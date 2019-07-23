@@ -28,5 +28,11 @@ namespace AutomationProject.DataEntities.Model
         /// </summary>
         [JsonProperty("environment")]
         public string Environment { get; set; }
+
+        /// <summary>
+        /// Node server address
+        /// </summary>
+        [JsonProperty("server")]
+        public string Server { get; set; }
     }
 }
