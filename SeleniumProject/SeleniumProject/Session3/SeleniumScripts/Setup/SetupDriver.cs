@@ -2,11 +2,14 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Appium.Android;
 using AutomationProject.Contracts;
 using System;
 using System.IO;
 using System.Reflection;
 using AutomationProject.DataEntities.Library;
+using OpenQA.Selenium.Remote;
+using System.Diagnostics;
 
 namespace SeleniumScripts
 {
@@ -18,7 +21,7 @@ namespace SeleniumScripts
         /// <summary>
         /// Path for Selenium drivers
         /// </summary>
-        private const string DriverPath = @"\Session2\Binaries\";
+        private const string DriverPath = @"\Session3\Binaries\";
 
         /// <summary>
         /// The browser
@@ -30,6 +33,10 @@ namespace SeleniumScripts
         /// </summary>
         public IWebDriver Driver { get; set; }
 
+        /// <summary>
+        /// The Android driver
+        /// </summary>
+        public AndroidDriver<RemoteWebElement> AndroidDriver { get; set; }
 
         public object SeleniumExtrasWaitHelper { get; private set; }
         
@@ -49,7 +56,15 @@ namespace SeleniumScripts
         {
             if (Driver == null)
             {
-                Init();
+                InitWebDriver();
+            }
+        }
+
+        public void LoadAndroidDriver()
+        {
+            if (AndroidDriver == null)
+            {
+                InitAndroidDriver();
             }
         }
 
@@ -64,7 +79,7 @@ namespace SeleniumScripts
         /// <summary>
         /// Defines the web driver depending on the browser specified
         /// </summary>
-        private void Init()
+        private void InitWebDriver()
         {
             switch (Browser.ToUpperInvariant())
             {
@@ -105,6 +120,63 @@ namespace SeleniumScripts
             }
 
             GoToMainUrl();
+        }
+
+
+        private void InitAndroidDriver()
+        {
+
+            /*
+            ChromeOptions options = new ChromeOptions()
+            DesiredCaps = options.ToCapabilities() as DesiredCapabilities;
+            DesiredCaps.SetCapability("platformName","Android");
+            DesiredCaps.SetCapability("platformVersion", "8.1");
+            DesiredCaps.SetCapability("deviceName", "Device 01 Oreo_1440x2560");
+            DesiredCaps.SetCapability("device", "Android");
+
+            AppDriver = new AndroidDriver<AppiumWebElement>(new Uri("http://127.0.0.1:4723/wd/hub"), DesiredCaps, TimeSpan.FromSeconds(300));
+            */
+
+            var capabilities = new DesiredCapabilities();
+            capabilities.SetCapability("deviceName", GetDeviceName());
+            //capabilities.SetCapability("platformVersion", "6.0.1");
+            capabilities.SetCapability("platformName", "Android");
+            capabilities.SetCapability("fullReset", "false");
+            capabilities.SetCapability("noReset", "true");
+            capabilities.SetCapability("unicodeKeyboard", true);
+            capabilities.SetCapability("resetKeyboard", true);
+            capabilities.SetCapability("autoAcceptAlerts", true);
+            capabilities.SetCapability("autoGrantPermissions", true);
+            capabilities.SetCapability("newCommandTimeout", 300);
+            capabilities.SetCapability("app", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + DriverPath + "com.roche.rmdd.hivmonitor.patientapp.apk");
+
+            AndroidDriver = new AndroidDriver<RemoteWebElement>(new Uri("http://127.0.0.1:4723/wd/hub"), capabilities, TimeSpan.FromSeconds(120));
+        }
+
+        private string GetDeviceName()
+        {
+            //Execute adb command to get the deviceName
+            var proc = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "adb.exe",
+                    Arguments = "devices",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true
+                }
+            };
+            proc.Start();
+            string deviceName = proc.StandardOutput.ReadToEnd().ToString();
+
+            //Extract the deviceName for the capabilities
+            deviceName = deviceName.Replace("List of devices attached", "");
+            deviceName = deviceName.Replace("	device", "");
+            deviceName = deviceName.Replace("\r\n", "");
+
+            Console.WriteLine(" - deviceName: " + deviceName);
+            return deviceName;
         }
     }
 }

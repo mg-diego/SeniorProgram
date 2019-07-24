@@ -15,7 +15,7 @@ namespace SeleniumProject.DataEntities.Library
         /// <param name="fileName">file to be deserialized</param>
         protected T GetJsonDeserialize<T>(string fileName)
         {
-            var path = string.Format(CultureInfo.InvariantCulture, @"{0}\Session2\DataEntities\json\{1}", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), fileName);
+            var path = string.Format(CultureInfo.InvariantCulture, @"{0}\Session3\DataEntities\json\{1}", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), fileName);
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException($"the file in the following path is not found: {path} ");

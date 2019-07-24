@@ -120,15 +120,15 @@ namespace AutomationProject.SeleniumScripts
             switch (browser_TagName)
             {
                 case "Chrome":
-                    Load(Browser.Chrome);
+                    LoadWebDriver(Browser.Chrome);
                     break;
 
                 case "Firefox":
-                    Load(Browser.Firefox);
+                    LoadWebDriver(Browser.Firefox);
                     break;
 
                 case "IE":
-                    Load(Browser.IE);
+                    LoadWebDriver(Browser.IE);
                     break;
 
                 case "api":
@@ -137,12 +137,16 @@ namespace AutomationProject.SeleniumScripts
                     setupDriver.LoadAPIDriver();
                     break;
 
+                case "Android":
+                    LoadAndroidDriver();
+                    break;
+
                 default:
                     throw new NotSupportedException("No browser tag name defined.");
             }
         }
 
-        private void Load(Browser browser)
+        private void LoadWebDriver(Browser browser)
         {
             ContainerDependencies.CreateContainer();
             var setupDriver = ContainerDependencies.Container.Resolve(typeof(SetupDriver), null, null) as SetupDriver;
@@ -157,5 +161,23 @@ namespace AutomationProject.SeleniumScripts
                 ScenarioContext.Current.Add("currentDriver", setupDriver.Driver);
             }
         }
+
+
+        private void LoadAndroidDriver()
+        {
+            ContainerDependencies.CreateContainer();
+            var setupDriver = ContainerDependencies.Container.Resolve(typeof(SetupDriver), null, null) as SetupDriver;
+
+            setupDriver.LoadAndroidDriver();
+
+            driver = setupDriver.AndroidDriver;
+
+            if (!ScenarioContext.Current.ContainsKey("currentDriver"))
+            {
+                ScenarioContext.Current.Add("currentDriver", setupDriver.AndroidDriver);
+            }
+        }
+
+
     }
 }
