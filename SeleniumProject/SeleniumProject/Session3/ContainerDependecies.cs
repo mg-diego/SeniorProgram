@@ -25,6 +25,9 @@ namespace AutomationProject.Containers
             container.RegisterType<ILoginPage, LoginPage>(new HierarchicalLifetimeManager());
             container.RegisterType<INewCustomer, NewCustomerPage>(new HierarchicalLifetimeManager());
 
+
+            container.RegisterType<IBasicPage, BasicPage>(new HierarchicalLifetimeManager());
+
             Container = container;
 
             return container;

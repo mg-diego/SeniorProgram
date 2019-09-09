@@ -125,32 +125,20 @@ namespace SeleniumScripts
 
         private void InitAndroidDriver()
         {
-
-            /*
-            ChromeOptions options = new ChromeOptions()
-            DesiredCaps = options.ToCapabilities() as DesiredCapabilities;
-            DesiredCaps.SetCapability("platformName","Android");
-            DesiredCaps.SetCapability("platformVersion", "8.1");
-            DesiredCaps.SetCapability("deviceName", "Device 01 Oreo_1440x2560");
-            DesiredCaps.SetCapability("device", "Android");
-
-            AppDriver = new AndroidDriver<AppiumWebElement>(new Uri("http://127.0.0.1:4723/wd/hub"), DesiredCaps, TimeSpan.FromSeconds(300));
-            */
-
             var capabilities = new DesiredCapabilities();
             capabilities.SetCapability("deviceName", GetDeviceName());
             //capabilities.SetCapability("platformVersion", "6.0.1");
             capabilities.SetCapability("platformName", "Android");
-            capabilities.SetCapability("fullReset", "false");
-            capabilities.SetCapability("noReset", "true");
+            capabilities.SetCapability("fullReset", "true");
+            capabilities.SetCapability("noReset", "false");
             capabilities.SetCapability("unicodeKeyboard", true);
             capabilities.SetCapability("resetKeyboard", true);
             capabilities.SetCapability("autoAcceptAlerts", true);
             capabilities.SetCapability("autoGrantPermissions", true);
             capabilities.SetCapability("newCommandTimeout", 300);
-            capabilities.SetCapability("app", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + DriverPath + "com.roche.rmdd.hivmonitor.patientapp.apk");
+            capabilities.SetCapability("app", @"C:\temp\calculator.apk");
 
-            AndroidDriver = new AndroidDriver<RemoteWebElement>(new Uri("http://127.0.0.1:4723/wd/hub"), capabilities, TimeSpan.FromSeconds(120));
+            AndroidDriver = new AndroidDriver<RemoteWebElement>(new Uri("http://127.0.0.1:4725/wd/hub"), capabilities, TimeSpan.FromSeconds(120));
         }
 
         private string GetDeviceName()
@@ -160,7 +148,7 @@ namespace SeleniumScripts
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = "adb.exe",
+                    FileName = @"C:\Users\madi\AppData\Local\Android\Sdk\platform-tools\adb.exe",
                     Arguments = "devices",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,

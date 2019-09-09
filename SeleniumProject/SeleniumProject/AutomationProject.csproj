@@ -130,19 +130,20 @@
     <Reference Include="Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27, processorArchitecture=MSIL">
       <HintPath>..\packages\Utf8Json.1.3.7\lib\net45\Utf8Json.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=3.11.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.11.2\lib\net45\WebDriver.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.3.0.1\lib\net40\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver.Support, Version=3.11.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.11.2\lib\net45\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Session0\ChromeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session3\ContainerDependecies.cs" />
-    <Compile Include="Session3\Contracts\Pages\ILoginPage.cs" />
-    <Compile Include="Session3\Contracts\Pages\INewCustomer.cs" />
+    <Compile Include="Session3\Contracts\Pages\Android\IBasicPage.cs" />
+    <Compile Include="Session3\Contracts\Pages\UI\ILoginPage.cs" />
+    <Compile Include="Session3\Contracts\Pages\UI\INewCustomer.cs" />
     <Compile Include="Session3\Contracts\Setup\ISetupDriver.cs" />
     <Compile Include="Session3\Database\DatabaseSeeder.cs" />
     <Compile Include="Session3\Database\DatabaseSteps.cs" />
@@ -154,9 +155,12 @@
     <Compile Include="Session3\SeleniumScripts\Base\ScriptBase.cs" />
     <Compile Include="Session3\SeleniumScripts\Helpers\SeleniumHelpers.cs" />
     <Compile Include="Session3\SeleniumScripts\Hook.cs" />
-    <Compile Include="Session3\SeleniumScripts\Pages\LoginPage.cs" />
-    <Compile Include="Session3\SeleniumScripts\Pages\NewCustomerPage.cs" />
+    <Compile Include="Session3\SeleniumScripts\Pages\Android\BasicPage.cs" />
+    <Compile Include="Session3\SeleniumScripts\Pages\UI\LoginPage.cs" />
+    <Compile Include="Session3\SeleniumScripts\Pages\UI\NewCustomerPage.cs" />
     <Compile Include="Session3\SeleniumScripts\Setup\SetupDriver.cs" />
+    <Compile Include="Session3\TestScripts\Android\Features\Calculator.feature.cs" />
+    <Compile Include="Session3\TestScripts\Android\Steps\CalculatorSteps.cs" />
     <Compile Include="Session3\TestScripts\API\Steps\ApiSteps.cs" />
     <Compile Include="Session3\TestScripts\UI\Steps\LoginSteps.cs" />
     <Compile Include="Session3\TestScripts\UI\Steps\NewCustomerSteps.cs" />
@@ -173,12 +177,14 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Session3\Binaries\calculator.apk" />
     <None Include="Session3\DataEntities\json\Customer.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Session3\DataEntities\json\nodeserver.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Session3\TestScripts\Android\Features\Calculator.feature" />
     <None Include="Session3\TestScripts\API\Features\DELETE_DeleteEmployee.feature" />
     <None Include="Session3\TestScripts\API\Features\GET_Employee.feature" />
     <None Include="Session3\TestScripts\API\Features\POST_CreateEmployee.feature" />
@@ -189,6 +195,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Session3\Binaries\adb.exe" />
     <Content Include="Session3\Binaries\chromedriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
