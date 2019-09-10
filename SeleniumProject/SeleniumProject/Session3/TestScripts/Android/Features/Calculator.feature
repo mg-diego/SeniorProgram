@@ -2,6 +2,6 @@
 
 
 @Android
-Scenario: Open Calculator
+Scenario: Open Calculator app
     Given the user opens the calculator app
 
