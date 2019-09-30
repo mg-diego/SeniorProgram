@@ -142,6 +142,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session3\ContainerDependecies.cs" />
     <Compile Include="Session3\Contracts\Pages\Android\IBasicPage.cs" />
+    <Compile Include="Session3\Contracts\Pages\Android\IEquationSolverPage.cs" />
+    <Compile Include="Session3\Contracts\Pages\Android\IMenuPage.cs" />
     <Compile Include="Session3\Contracts\Pages\UI\ILoginPage.cs" />
     <Compile Include="Session3\Contracts\Pages\UI\INewCustomer.cs" />
     <Compile Include="Session3\Contracts\Setup\ISetupDriver.cs" />
@@ -156,11 +158,16 @@
     <Compile Include="Session3\SeleniumScripts\Helpers\SeleniumHelpers.cs" />
     <Compile Include="Session3\SeleniumScripts\Hook.cs" />
     <Compile Include="Session3\SeleniumScripts\Pages\Android\BasicPage.cs" />
+    <Compile Include="Session3\SeleniumScripts\Pages\Android\EquationSolverPage.cs" />
+    <Compile Include="Session3\SeleniumScripts\Pages\Android\MenuPage.cs" />
     <Compile Include="Session3\SeleniumScripts\Pages\UI\LoginPage.cs" />
     <Compile Include="Session3\SeleniumScripts\Pages\UI\NewCustomerPage.cs" />
     <Compile Include="Session3\SeleniumScripts\Setup\SetupDriver.cs" />
     <Compile Include="Session3\TestScripts\Android\Features\Calculator.feature.cs" />
+    <Compile Include="Session3\TestScripts\Android\Features\EquationSolver.feature.cs" />
     <Compile Include="Session3\TestScripts\Android\Steps\CalculatorSteps.cs" />
+    <Compile Include="Session3\TestScripts\Android\Steps\EquationSolverSteps.cs" />
+    <Compile Include="Session3\TestScripts\Android\Steps\MenuSteps.cs" />
     <Compile Include="Session3\TestScripts\API\Steps\ApiSteps.cs" />
     <Compile Include="Session3\TestScripts\UI\Steps\LoginSteps.cs" />
     <Compile Include="Session3\TestScripts\UI\Steps\NewCustomerSteps.cs" />
@@ -185,6 +192,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Session3\TestScripts\Android\Features\Calculator.feature" />
+    <None Include="Session3\TestScripts\Android\Features\EquationSolver.feature" />
     <None Include="Session3\TestScripts\API\Features\DELETE_DeleteEmployee.feature" />
     <None Include="Session3\TestScripts\API\Features\GET_Employee.feature" />
     <None Include="Session3\TestScripts\API\Features\POST_CreateEmployee.feature" />

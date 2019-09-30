@@ -1,6 +1,8 @@
 ﻿using AutomationProject.Contracts;
 using AutomationProject.Contracts.Pages;
 using AutomationProject.SeleniumScripts.Pages;
+using SeleniumProject.Session3.SeleniumScripts.Pages;
+using SeleniumProject.Session3.SeleniumScripts.Pages.Android;
 using SeleniumScripts;
 using Unity;
 using Unity.Lifetime;
@@ -20,6 +22,7 @@ namespace AutomationProject.Containers
         public static IUnityContainer CreateContainer()
         {
             var container = new UnityContainer();
+            container.AddExtension(new Diagnostic());
 
             container.RegisterType<ISetupDriver, SetupDriver>(new HierarchicalLifetimeManager());
             container.RegisterType<ILoginPage, LoginPage>(new HierarchicalLifetimeManager());
@@ -27,6 +30,8 @@ namespace AutomationProject.Containers
 
 
             container.RegisterType<IBasicPage, BasicPage>(new HierarchicalLifetimeManager());
+            container.RegisterType<IMenuPage, MenuPage>(new HierarchicalLifetimeManager());
+            container.RegisterType<IEquationSolverPage, EquationSolverPage>(new HierarchicalLifetimeManager());
 
             Container = container;
 

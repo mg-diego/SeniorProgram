@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Threading;
 using SeleniumExtrasWaitHelper = SeleniumExtras.WaitHelpers;
 using AutomationProject.SeleniumScripts.Helpers;
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Appium.Android;
 
 namespace SeleniumScripts
 {
@@ -15,10 +17,17 @@ namespace SeleniumScripts
     {
         public IWebDriver Driver { get; set; }
 
+        public AndroidDriver<RemoteWebElement> AndroidDriver { get; set; }
+
         /// <summary>
         /// Constructor
         /// </summary>
         public ScriptBase(IWebDriver driver) { }
+        
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public ScriptBase(AndroidDriver<RemoteWebElement> AndroidDriver) { }
 
         /// <summary>
         /// Wait method
@@ -346,5 +355,31 @@ namespace SeleniumScripts
             return ActiveTableRow;
         }
 
+
+        public void SwipeRightToLeft()
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            int Height = AndroidDriver.Manage().Window.Size.Height;
+            int Width = AndroidDriver.Manage().Window.Size.Width;
+            int Starty = (int)(Height / 2);
+            int Endx = (int)(Width / 90);
+            int Startx = (int)(Width * 0.90);
+            int Endy = Starty;
+
+            AndroidDriver.Swipe(Startx, Starty, Endx, Endy, 800);
+        }
+
+        public void SwipeLeftToRight()
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            int Height = AndroidDriver.Manage().Window.Size.Height;
+            int Width = AndroidDriver.Manage().Window.Size.Width;
+            int Starty = (int)(Height / 2);
+            int Startx = (int)(Width / 90);
+            int Endx = (int)(Width * 0.90);
+            int Endy = Starty;
+
+            AndroidDriver.Swipe(Startx, Starty, Endx, Endy, 800);
+        }
     }
 }

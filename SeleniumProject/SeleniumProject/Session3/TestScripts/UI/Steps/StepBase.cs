@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Appium.Android;
+using OpenQA.Selenium.Remote;
 using RestSharp;
 using System;
 using TechTalk.SpecFlow;
@@ -12,12 +14,15 @@ namespace AutomationProject.TestScripts.Steps
         /// </summary>
         public IWebDriver Driver { get; set; }
 
+        public AndroidDriver<RemoteWebElement> AndroidDriver { get; set; }
+
         /// <summary>
         /// instantiates the step base class
         /// </summary>
         protected StepBase()
         {
             Driver = ScenarioContext.Current.Get<IWebDriver>("currentDriver");
+            AndroidDriver = ScenarioContext.Current.Get<AndroidDriver<RemoteWebElement>>("currentDriver");
         }
 
         /// <summary>

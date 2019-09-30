@@ -16,14 +16,26 @@ namespace AutomationProject.TestScripts.Steps
         public CalculatorSteps()
         {
             basicPage = ContainerDependencies.Container.Resolve(typeof(IBasicPage), null,
-                new ParameterOverride("driver", Driver)) as IBasicPage;
+                new ParameterOverride("androidDriver", AndroidDriver)) as IBasicPage;
         }
 
 
         [Given(@"the user opens the calculator app")]
         public void GivenTheUserOpensTheCalculatorApp()
         {
-            basicPage.ClosePopupOpenApp();
+            basicPage.CheckIsAtBasicPage();
+        }
+
+        [When(@"the user clicks button '(.*)' in Basic Calculator")]
+        public void WhenTheUserClickButton(string button)
+        {
+            basicPage.ClickButton(button);
+        }
+
+        [Then(@"the result field shows '(.*)' in Basic Calculator")]
+        public void ThenResultFieldShow(string expectedResult)
+        {
+            basicPage.CheckResult(expectedResult);
         }
 
     }
