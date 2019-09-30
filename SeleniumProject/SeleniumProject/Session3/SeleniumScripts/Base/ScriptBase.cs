@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Threading;
 using SeleniumExtrasWaitHelper = SeleniumExtras.WaitHelpers;
 using AutomationProject.SeleniumScripts.Helpers;
+using OpenQA.Selenium.Appium.Android;
+using OpenQA.Selenium.Remote;
 
 namespace SeleniumScripts
 {
@@ -15,10 +17,17 @@ namespace SeleniumScripts
     {
         public IWebDriver Driver { get; set; }
 
+        public AndroidDriver<RemoteWebElement> AndroidDriver { get; set; }
+
         /// <summary>
         /// Constructor
         /// </summary>
         public ScriptBase(IWebDriver driver) { }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public ScriptBase(AndroidDriver<RemoteWebElement> AndroidDriver) { }
 
         /// <summary>
         /// Wait method

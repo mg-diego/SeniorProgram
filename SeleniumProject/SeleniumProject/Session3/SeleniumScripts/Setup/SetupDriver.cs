@@ -127,10 +127,9 @@ namespace SeleniumScripts
         {
             var capabilities = new DesiredCapabilities();
             capabilities.SetCapability("deviceName", GetDeviceName());
-            //capabilities.SetCapability("platformVersion", "6.0.1");
             capabilities.SetCapability("platformName", "Android");
-            capabilities.SetCapability("fullReset", "true");
-            capabilities.SetCapability("noReset", "false");
+            capabilities.SetCapability("fullReset", "false");
+            capabilities.SetCapability("noReset", "true");
             capabilities.SetCapability("unicodeKeyboard", true);
             capabilities.SetCapability("resetKeyboard", true);
             capabilities.SetCapability("autoAcceptAlerts", true);

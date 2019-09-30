@@ -16,7 +16,7 @@ namespace AutomationProject.TestScripts.Steps
         public CalculatorSteps()
         {
             basicPage = ContainerDependencies.Container.Resolve(typeof(IBasicPage), null,
-                new ParameterOverride("driver", Driver)) as IBasicPage;
+                new ParameterOverride("androidDriver", AndroidDriver)) as IBasicPage;
         }
 
 

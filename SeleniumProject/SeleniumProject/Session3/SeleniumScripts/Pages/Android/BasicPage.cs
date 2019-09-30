@@ -1,5 +1,7 @@
 ﻿using AutomationProject.Contracts.Pages;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Appium.Android;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.PageObjects;
 using SeleniumScripts;
 
@@ -11,17 +13,16 @@ namespace AutomationProject.SeleniumScripts.Pages
         private IWebElement ClosePopupButton { get; set; }
 
 
-        public BasicPage(IWebDriver driver) : base(driver)
+        public BasicPage(AndroidDriver<RemoteWebElement> androidDriver) : base(androidDriver)
         {
-            Driver = driver;
-            PageFactory.InitElements(Driver, this);
+            AndroidDriver = androidDriver;
+            PageFactory.InitElements(AndroidDriver, this);
         }
 
 
         public void ClosePopupOpenApp()
         {
-            WaitUntilElementIsClickable(ClosePopupButton);
-            ClosePopupButton.Click();
+            WaitThreadSleep(1);
         }
     }
 }
