@@ -1,0 +1,79 @@
+
+API
+https://jsonplaceholder.typicode.com/
+https://my-json-server.typicode.com/
+
+POSTMAN
+https://www.guru99.com/postman-tutorial.html
+
+
+/////// SESSION 1 ////////
+http://the-internet.herokuapp.com/
+
+1. Visual Studio
+2. Unit Test Project
+3. Manage Nuget Packages
+	- Selenium webdriver
+	- Rename to LoginTest.cs
+	
+4. 
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+
+5. public void UserLogin()
+Todo dentro del metodo
+this._webDriver = new ChromeDriver(ChromeDriverService.CreateDefaultService(@"D:\"), new ChromeOptions(), TimeSpan.FromSeconds(10));
+
+
+6. POM and Specflow
+Folder SeleniumScripts
+Folder AutomationScripts
+
+Nuget Specflow
+Nuget Specflow Mstest
+Nuget Specflow MsBuild Generation
+Nuget Unity
+Nuget Unity Abstractions
+Nuget Unity Container
+Nuget Polly
+Nuget DotNetSeleniumExtras.PageObjects
+Nuget System.Configuration.ConfigurationManager
+
+
+
+/////// SESSION 2 ////////
+Nuget RestSharp
+Add new feature GET_Employee
+	- Get all employees
+	- Get concrete employee 
+		--DatabaseSeeder
+		--RegexMatches, check body response ("the response body contains '(.*)' exactly '(.*)' times")
+	
+Add negative testcases (wronguser, empty)
+	- Reuse "the response body contains '(.*)' exactly '(.*)' times
+	
+POST Employee
+PUT Employee
+DELETE Employee
+
+
+/////// SESSION 3 ////////
+
+Prerequisites:
+	- Install JDK - http://www.software-testing-tutorials-automation.com/2015/09/steps-to-download-and-install-javajdk.html
+	- Android SDK installed - http://www.software-testing-tutorials-automation.com/2015/09/steps-to-download-and-install-android.html
+	- Set ANDROID_HOME - http://www.software-testing-tutorials-automation.com/2015/09/set-androidhome-and-path-environment.html
+	- Install Node.js
+	- Install Appium Desktop http://appium.io/ 
+	
+Nuget Appium.WebDriver
+
+
+-- Install APK
+- Allow install apk from unknown sources
+- Developer Mode
+	-- About Phone
+	-- MIUI version
+- Allow permisions
+	
+all.in.one.photo.math.calculator.apk
