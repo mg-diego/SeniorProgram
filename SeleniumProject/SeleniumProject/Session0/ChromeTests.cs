@@ -17,15 +17,14 @@ namespace AutomationProject
         /// </summary>
         private IWebDriver _webDriver;
 
-        private string userId = "mngr210472";
-        private string password = "AgaryhA";
+        private string userId = "mngr293224";
+        private string password = "qymuvut";
 
 
         [TestInitialize]
         public void SetUp()
         {
             //Set Up Web Driver
-            this._webDriver = new ChromeDriver(ChromeDriverService.CreateDefaultService(@"C:\Temp"), new ChromeOptions(), TimeSpan.FromSeconds(10));
             this._webDriver = new ChromeDriver(ChromeDriverService.CreateDefaultService(@"C:\Temp"), new ChromeOptions(), TimeSpan.FromSeconds(10));
 
             // Go to the Web Page
