@@ -107,7 +107,6 @@ namespace SeleniumScripts
 
                 policy.Execute(() =>
                 {
-                    Thread.Sleep(TimeSpan.FromMilliseconds(800));
                     this.WaitUntilElementIsClickable(element);
                     element.Click();
                 });
@@ -139,7 +138,6 @@ namespace SeleniumScripts
 
                 policy.Execute(() =>
                 {
-                    Thread.Sleep(TimeSpan.FromMilliseconds(800));
                     this.WaitUntilElementIsClickable(element);
                     new Actions(Driver).DoubleClick(element).Build().Perform();
                 });
@@ -171,7 +169,6 @@ namespace SeleniumScripts
 
                 policy.Execute(() =>
                 {
-                    Thread.Sleep(TimeSpan.FromMilliseconds(800));
                     this.WaitUntilElementIsClickable(element);
                     Actions action = new Actions(Driver);
                     action.MoveToElement(element).Click().Perform();
@@ -199,7 +196,6 @@ namespace SeleniumScripts
 
                 policy.Execute(() =>
                 {
-                    Thread.Sleep(TimeSpan.FromMilliseconds(800));
                     this.WaitUntilElementIsClickable(element);
                     Actions action = new Actions(Driver);
                     action.MoveToElement(element).Click().Perform();
@@ -243,7 +239,6 @@ namespace SeleniumScripts
                 throw new ArgumentNullException(nameof(element));
             }
 
-            Thread.Sleep(TimeSpan.FromMilliseconds(500));
             this.WaitUntilElementIsClickable(element);
             element.SendKeys(keys);
         }

@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using AutomationProject.Session1.Containers;
 using SeleniumScripts;
 using System;
-using System.Configuration;
 using System.Globalization;
 using System.IO;
 using TechTalk.SpecFlow;
@@ -46,7 +45,7 @@ namespace AutomationProject.Session1.SeleniumScripts
             //Folder format:
             // "C:\Temp\<CurrentDate>\"
             // Ex: C:\Temp\2019-07-16 - 16_54_32\
-            TestResultsDirectory = @"C:\Temp";
+            TestResultsDirectory = @"C:\Temp\AutomationProject";
             TestResultsDirectory = TestResultsDirectory + @"\" + DateTime.UtcNow.ToString("yyy-MM-dd HH-mm-ss", CultureInfo.InvariantCulture);
 
             if (!Directory.Exists(TestResultsDirectory) && !_isApiTestcase)
@@ -54,7 +53,7 @@ namespace AutomationProject.Session1.SeleniumScripts
                 Directory.CreateDirectory(TestResultsDirectory);
             }
 
-            LoadBrowserConfig();
+            this.LoadBrowserConfig();
         }
 
         [AfterScenario]
@@ -110,15 +109,15 @@ namespace AutomationProject.Session1.SeleniumScripts
             switch (browser_TagName)
             {
                 case "Chrome":
-                    Load(Browser.Chrome);
+                    this.Load(Browser.Chrome);
                     break;
 
                 case "Firefox":
-                    Load(Browser.Firefox);
+                    this.Load(Browser.Firefox);
                     break;
 
                 case "IE":
-                    Load(Browser.IE);
+                    this.Load(Browser.IE);
                     break;
 
                 default:
@@ -134,12 +133,25 @@ namespace AutomationProject.Session1.SeleniumScripts
             setupDriver.Browser = browser.ToString();
             setupDriver.LoadWebDriver();
 
-            driver = setupDriver.Driver;
+            this.driver = setupDriver.Driver;
+
+            this.RegisterAllPages();
 
             if (!ScenarioContext.Current.ContainsKey("currentDriver"))
             {
                 ScenarioContext.Current.Add("currentDriver", setupDriver.Driver);
             }
+        }
+
+        private void RegisterAllPages()
+        {
+            /*
+            ContainerDependencies.Container.RegisterType<ILoginPage, LoginPage>(
+                new HierarchicalLifetimeManager(),
+                new InjectionMember[] {
+                    new InjectionConstructor(this.driver)
+               });
+               */
         }
     }
 }
