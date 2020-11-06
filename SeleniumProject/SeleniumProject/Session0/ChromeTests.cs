@@ -117,22 +117,24 @@ namespace AutomationProject
         public void CheckMenuLinks()
         {
             // -- Arrange --
-            Dictionary<string, string> HomepageMenuLinks = new Dictionary<string, string>();
-            HomepageMenuLinks.Add("Manager", "http://demo.guru99.com/V4/manager/Managerhomepage.php");
-            HomepageMenuLinks.Add("New Customer", "http://demo.guru99.com/V4/manager/addcustomerpage.php");
-            HomepageMenuLinks.Add("Edit Customer", "http://demo.guru99.com/V4/manager/EditCustomer.php");
-            HomepageMenuLinks.Add("Delete Customer", "http://demo.guru99.com/V4/manager/DeleteCustomerInput.php");
-            HomepageMenuLinks.Add("New Account", "http://demo.guru99.com/V4/manager/addAccount.php");
-            HomepageMenuLinks.Add("Edit Account", "http://demo.guru99.com/V4/manager/editAccount.php");
-            HomepageMenuLinks.Add("Delete Account", "http://demo.guru99.com/V4/manager/deleteAccountInput.php");
-            HomepageMenuLinks.Add("Deposit", "http://demo.guru99.com/V4/manager/DepositInput.php");
-            HomepageMenuLinks.Add("Withdrawal", "http://demo.guru99.com/V4/manager/WithdrawalInput.php");
-            HomepageMenuLinks.Add("Fund Transfer", "http://demo.guru99.com/V4/manager/FundTransInput.php");
-            HomepageMenuLinks.Add("Change Password", "http://demo.guru99.com/V4/manager/PasswordInput.php");
-            HomepageMenuLinks.Add("Balance Enquiry", "http://demo.guru99.com/V4/manager/BalEnqInput.php");
-            HomepageMenuLinks.Add("Mini Statement", "http://demo.guru99.com/V4/manager/MiniStatementInput.php");
-            HomepageMenuLinks.Add("Customised Statement", "http://demo.guru99.com/V4/manager/CustomisedStatementInput.php");
-            HomepageMenuLinks.Add("Log out", "http://demo.guru99.com/V4/manager/Logout.php");
+            Dictionary<string, string> HomepageMenuLinks = new Dictionary<string, string>
+            {
+                { "Manager", "http://demo.guru99.com/V4/manager/Managerhomepage.php" },
+                { "New Customer", "http://demo.guru99.com/V4/manager/addcustomerpage.php" },
+                { "Edit Customer", "http://demo.guru99.com/V4/manager/EditCustomer.php" },
+                { "Delete Customer", "http://demo.guru99.com/V4/manager/DeleteCustomerInput.php" },
+                { "New Account", "http://demo.guru99.com/V4/manager/addAccount.php" },
+                { "Edit Account", "http://demo.guru99.com/V4/manager/editAccount.php" },
+                { "Delete Account", "http://demo.guru99.com/V4/manager/deleteAccountInput.php" },
+                { "Deposit", "http://demo.guru99.com/V4/manager/DepositInput.php" },
+                { "Withdrawal", "http://demo.guru99.com/V4/manager/WithdrawalInput.php" },
+                { "Fund Transfer", "http://demo.guru99.com/V4/manager/FundTransInput.php" },
+                { "Change Password", "http://demo.guru99.com/V4/manager/PasswordInput.php" },
+                { "Balance Enquiry", "http://demo.guru99.com/V4/manager/BalEnqInput.php" },
+                { "Mini Statement", "http://demo.guru99.com/V4/manager/MiniStatementInput.php" },
+                { "Customised Statement", "http://demo.guru99.com/V4/manager/CustomisedStatementInput.php" },
+                { "Log out", "http://demo.guru99.com/V4/manager/Logout.php" }
+            };
 
             // -- Act --
             UserLogon();
