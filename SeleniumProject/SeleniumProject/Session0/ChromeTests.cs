@@ -29,7 +29,7 @@ namespace AutomationProject
 
             // Go to the Web Page
             this._webDriver.Navigate().GoToUrl("http://demo.guru99.com/V4/index.php");
-            this._webDriver.Manage().Window.FullScreen();
+            this._webDriver.Manage().Window.Maximize();
         }
 
         /// <summary>
@@ -169,15 +169,17 @@ namespace AutomationProject
             var submitBtn = this._webDriver.FindElement(By.Name("sub"));
             var resetBtn = this._webDriver.FindElement(By.Name("res"));
 
-            Dictionary<string, string> NewCustomer = new Dictionary<string, string>();
-            NewCustomer.Add("Customer Name","Diego");
-            NewCustomer.Add("Gender","male");
-            NewCustomer.Add("Address","Plaza Cataluña");
-            NewCustomer.Add("City","Barcelona");
-            NewCustomer.Add("State","Barcelona");
-            NewCustomer.Add("Pin","123321");
-            NewCustomer.Add("Mobile No.", "123321123");
-            NewCustomer.Add("Email", "diego"+ random.Next(1,10000).ToString() + "@erni.com");
+            Dictionary<string, string> NewCustomer = new Dictionary<string, string>
+            {
+                { "Customer Name", "Diego" },
+                { "Gender", "male" },
+                { "Address", "Plaza Cataluña" },
+                { "City", "Barcelona" },
+                { "State", "Barcelona" },
+                { "Pin", "123321" },
+                { "Mobile No.", "123321123" },
+                { "Email", "diego" + random.Next(1, 10000).ToString() + "@erni.com" }
+            };
 
             customerNameInput.SendKeys(NewCustomer["Customer Name"]);
             genderFemaleRadioButton.Click();
@@ -218,7 +220,6 @@ namespace AutomationProject
             }
 
             Console.WriteLine("CustomerId: " + rows[3].FindElements(By.TagName("td"))[1].Text);
-
         }
     }
 }

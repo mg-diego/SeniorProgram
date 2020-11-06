@@ -10,8 +10,8 @@
     <ProjectGuid>{7400CCD3-7073-407E-AE89-C2D664BC792D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SeleniumProject</RootNamespace>
-    <AssemblyName>SeleniumProject</AssemblyName>
+    <RootNamespace>AutomationProject</RootNamespace>
+    <AssemblyName>AutomationProject</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -131,10 +131,10 @@
     <Compile Include="Session1\Contracts\Setup\ISetupDriver.cs" />
     <Compile Include="Session1\DataEntities\Library\CustomerLibrary.cs" />
     <Compile Include="Session1\DataEntities\Model\CustomerModel.cs" />
-    <Compile Include="Session1\SeleniumScripts\Base\ScriptBase.cs" />
-    <Compile Include="Session1\SeleniumScripts\Helpers\SeleniumHelpers.cs" />
-    <Compile Include="Session1\SeleniumScripts\Hook.cs" />
-    <Compile Include="Session1\SeleniumScripts\Setup\SetupDriver.cs" />
+    <Compile Include="Session1\AutomationScripts\Base\ScriptBase.cs" />
+    <Compile Include="Session1\AutomationScripts\Helpers\SeleniumHelpers.cs" />
+    <Compile Include="Session1\AutomationScripts\Hook.cs" />
+    <Compile Include="Session1\AutomationScripts\Setup\SetupDriver.cs" />
     <Compile Include="Session1\TestScripts\Steps\StepBase.cs" />
     <Compile Include="**\*.feature.cs" Exclude="@(Compile)" />
   </ItemGroup>
@@ -148,8 +148,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Session1\AutomationScripts\Pages\" />
     <Folder Include="Session1\Contracts\Pages\" />
-    <Folder Include="Session1\SeleniumScripts\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Session1\Binaries\chromedriver.exe">
