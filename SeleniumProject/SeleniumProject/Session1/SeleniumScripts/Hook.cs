@@ -7,6 +7,12 @@ using System.Configuration;
 using System.Globalization;
 using System.IO;
 using TechTalk.SpecFlow;
+using AutomationProject.Session1.Contracts;
+using Unity;
+using Unity.Lifetime;
+using Unity.Injection;
+using AutomationProject.Session1.Contracts.Pages;
+using AutomationProject.Session1.SeleniumScripts.Pages;
 
 namespace AutomationProject.Session1.SeleniumScripts
 {
@@ -46,7 +52,7 @@ namespace AutomationProject.Session1.SeleniumScripts
             //Folder format:
             // "C:\Temp\<CurrentDate>\"
             // Ex: C:\Temp\2019-07-16 - 16_54_32\
-            TestResultsDirectory = @"C:\Temp";
+            TestResultsDirectory = @"C:\Temp\AutomationProject";
             TestResultsDirectory = TestResultsDirectory + @"\" + DateTime.UtcNow.ToString("yyy-MM-dd HH-mm-ss", CultureInfo.InvariantCulture);
 
             if (!Directory.Exists(TestResultsDirectory) && !_isApiTestcase)
@@ -142,17 +148,33 @@ namespace AutomationProject.Session1.SeleniumScripts
         private void Load(Browser browser)
         {
             ContainerDependencies.CreateContainer();
-            var setupDriver = ContainerDependencies.Container.Resolve(typeof(SetupDriver), null, null) as SetupDriver;
 
+            var setupDriver = ContainerDependencies.Container.Resolve(typeof(SetupDriver), null, null) as SetupDriver;
             setupDriver.Browser = browser.ToString();
             setupDriver.LoadWebDriver();
 
-            driver = setupDriver.Driver;
+            this.driver = setupDriver.Driver;
+
+            this.RegisterAllPages();
 
             if (!ScenarioContext.Current.ContainsKey("currentDriver"))
             {
                 ScenarioContext.Current.Add("currentDriver", setupDriver.Driver);
             }
+        }
+
+        private void RegisterAllPages()
+        {
+            ContainerDependencies.Container.RegisterType<ILoginPage, LoginPage>(
+                new HierarchicalLifetimeManager(),
+                new InjectionMember[] {
+                                new InjectionConstructor(this.driver)
+                });
+            ContainerDependencies.Container.RegisterType<INewCustomer, NewCustomerPage>(
+                new HierarchicalLifetimeManager(),
+                new InjectionMember[] {
+                                new InjectionConstructor(this.driver)
+                });
         }
     }
 }

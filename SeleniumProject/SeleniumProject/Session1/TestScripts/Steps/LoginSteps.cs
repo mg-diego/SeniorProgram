@@ -1,6 +1,6 @@
 ﻿using AutomationProject.Session1.Contracts.Pages;
 using TechTalk.SpecFlow;
-using Unity.Resolution;
+using Unity;
 using System.Configuration;
 using AutomationProject.Session1.Containers;
 
@@ -19,8 +19,7 @@ namespace AutomationProject.Session1.TestScripts.Steps
         /// </summary>
         public LoginSteps()
         {
-            loginPage = ContainerDependencies.Container.Resolve(typeof(ILoginPage), null,
-                new ParameterOverride("driver", Driver)) as ILoginPage;
+            this.loginPage = ContainerDependencies.Container.Resolve<ILoginPage>();
         }
 
         [Given(@"the user enters valid username")]

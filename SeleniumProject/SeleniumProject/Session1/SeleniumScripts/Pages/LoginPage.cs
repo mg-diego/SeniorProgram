@@ -3,6 +3,7 @@ using AutomationProject.Session1.Contracts.Pages;
 using SeleniumScripts;
 using SeleniumExtras.PageObjects;
 using FluentAssertions;
+using System.Threading;
 
 namespace AutomationProject.Session1.SeleniumScripts.Pages
 {
@@ -26,8 +27,6 @@ namespace AutomationProject.Session1.SeleniumScripts.Pages
         /// <inheritdoc cref="ILoginPage" />
         public void EnterUserName(string name)
         {
-            WaitUntilElementIsClickable(userIdTextBox);
-            ClearElementContent(userIdTextBox);
             SendKeysElement(userIdTextBox, name);
         }
 
@@ -35,8 +34,6 @@ namespace AutomationProject.Session1.SeleniumScripts.Pages
         /// <inheritdoc cref="ILoginPage" />
         public void EnterUserPassword(string password)
         {
-            WaitUntilElementIsClickable(userPasswordTextBox);
-            ClearElementContent(userPasswordTextBox);
             SendKeysElement(userPasswordTextBox, password);
         }
 
@@ -51,6 +48,7 @@ namespace AutomationProject.Session1.SeleniumScripts.Pages
 
         public void CheckUserIsAtHomepage()
         {
+            Thread.Sleep(1000);
             this.Driver.Url.Should().Be("http://demo.guru99.com/V4/manager/Managerhomepage.php");
         }
 

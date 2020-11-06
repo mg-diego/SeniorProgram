@@ -22,8 +22,10 @@ namespace AutomationProject.Session1.Containers
             var container = new UnityContainer();
 
             container.RegisterType<ISetupDriver, SetupDriver>(new HierarchicalLifetimeManager());
+            /*
             container.RegisterType<ILoginPage, LoginPage>(new HierarchicalLifetimeManager());
             container.RegisterType<INewCustomer, NewCustomerPage>(new HierarchicalLifetimeManager());
+            */
 
             Container = container;
 

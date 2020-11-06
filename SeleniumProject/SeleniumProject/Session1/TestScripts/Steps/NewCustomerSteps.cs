@@ -1,12 +1,7 @@
 ﻿using AutomationProject.Session1.Containers;
 using AutomationProject.Session1.Contracts.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
-using Unity.Resolution;
+using Unity;
 
 namespace AutomationProject.Session1.TestScripts.Steps
 {
@@ -23,8 +18,7 @@ namespace AutomationProject.Session1.TestScripts.Steps
         /// </summary>
         public NewCustomerSteps()
         {
-            newCustomer = ContainerDependencies.Container.Resolve(typeof(INewCustomer), null,
-                new ParameterOverride("driver", Driver)) as INewCustomer;
+            this.newCustomer = ContainerDependencies.Container.Resolve<INewCustomer>();
         }
 
         [Given(@"the user enters valid data for new customer")]
@@ -53,7 +47,7 @@ namespace AutomationProject.Session1.TestScripts.Steps
             newCustomer.CheckNewCustomerIsCreated();
         }
 
-
+            
         [Given(@"a new valid user is created")]
         public void NewValidUserIsCreated()
         {
